@@ -1,7 +1,7 @@
 // Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const shapes = require('./lib/shapes');
+const shapes = require('./lib/shapes.js');
 
 //Template of markdown for READme, replaced with template litearls
 const generateLogo = {}
@@ -20,7 +20,7 @@ const questions = [
         type: 'input',
         name: 'textColor',
         message: 'What is your preferred text color for the logo?',
-  
+
     },
     {
         type: 'list',
@@ -33,7 +33,7 @@ const questions = [
         name: 'shapeColor',
         message: 'What color do you want your shape to be',
     },
-    
+
 ];
 
 
@@ -41,10 +41,36 @@ const questions = [
 inquirer
     .prompt(questions)
     .then((answers) => {
-        const readMePageContent = generateReadMe(answers);
+        let logoContent;
+
+        //Check the shape chosen by user and create the shape
+        switch (answers.shape) {
+            case 'circle':
+                const circle = new shapes.Circle(answers.textColor, answers.shapeColor, answers.textChoice);
+                logoContent = circle.generateCircle();
+                break;
+
+            //Add case for triangle
+            case 'triangle':
+                const triangle = new shapes.Triangle(answers.textColor, answers.shapeColor, answers.textChoice);
+                logoContent = triangle.generateTriangle();
+                break;
+
+            //Add case for square
+            case 'square':
+                const square = new shapes.Square(answers.textColor, answers.shapeColor, answers.textChoice);
+                logoContent = square.generateSquare();
+                break;
+            default:
+                console.log('Invalid shape choice');
+                return;
+        }
+
+
+
 
         //writing of the responses to the readme.md file
-        fs.writeFile('demo/README.md', readMePageContent, (err) =>
+        fs.writeFile('examples/logo.svg', logoContent, (err) =>
             err ? console.log(err) : console.log('Successfully created readme.md!')
         );
     });
