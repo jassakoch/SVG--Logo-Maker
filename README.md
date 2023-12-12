@@ -20,7 +20,7 @@ If your README is long, add a table of contents to make it easy for users to fin
 5. Follow prompts for creating the logo.
 
 ## Usage
-Refer to walkthrough video of SVG Logo maker
+Refer to walkthrough video of SVG Logo maker<br>
 [Video](https://drive.google.com/file/d/16mudgMov98j07hntR-rkLfIBdm5tsdA9/view)
 
    
@@ -28,8 +28,8 @@ Refer to walkthrough video of SVG Logo maker
 ## Credits
 
 Collaborators:
--Damir Yakupov - walked through the shapes.tests.js file with me step by step.
--Tutor and TA aid
+- Damir Yakupov - walked through the shapes.tests.js file with me step by step.<br>
+- Tutor and TA aid
 
 ## License
 
