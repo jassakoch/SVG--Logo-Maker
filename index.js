@@ -6,10 +6,8 @@ const shapes = require('./lib/shapes.js');
 //Template of markdown for READme, replaced with template litearls
 const generateLogo = {}
 
-
 // Array of questions for user input
 const questions = [
-
 
     {
         type: 'input',
@@ -33,9 +31,7 @@ const questions = [
         name: 'shapeColor',
         message: 'What color do you want your shape to be',
     },
-
 ];
-
 
 //Promting of the questions is initialized
 inquirer
@@ -66,12 +62,9 @@ inquirer
                 return;
         }
 
-
-
-
         //writing of the responses to the readme.md file
         fs.writeFile('examples/logo.svg', logoContent, (err) =>
-            err ? console.log(err) : console.log('Successfully created readme.md!')
+            err ? console.log(err) : console.log('Successfully created logo.svg!')
         );
     });
 
